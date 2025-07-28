@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Builder Guide - Galaxy Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Star background -->
+    <div class="stars"></div>
+
+    <!-- Build progress widget -->
+    <div class="build-progress">
+        <h4>Build Progress</h4>
+        <div class="progress-circle" id="progressCircle">0%</div>
+        <div id="progressText">0/4 Components</div>
+    </div>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>PC Builder Guide</h1>
+            <p class="subtitle">Your journey to building the perfect gaming rig awaits in the cosmos</p>
+            <h3>Select your components to begin your dream build</h3>
+        </header>
+
+
+        <!-- Build Steps (Start with CASE and include all components) -->
+        <section class="build-steps" id="buildSteps">
+
+            <!-- STEP 1: Case -->
+            <div class="step" data-component="case">
+
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-checkbox"></div>
+                </div>
+                <h3>Computer Case</h3>
+                <p>The foundation of your build - choose a case that fits your motherboard size and has good airflow.
+                </p>
+                <div class="component-selector">
+                    <div class="component-option" data-component="case" data-price="89"
+                        data-name="Fractal Design Define 7">
+                        <div class="component-name">Fractal Design Define 7</div>
+                        <div class="component-price">$89</div>
+                        <div class="component-specs">Mid-tower, Sound dampening, USB-C</div>
+                    </div>
+                    <div class="component-option" data-component="case" data-price="129" data-name="Corsair 4000D">
+                        <div class="component-name">Corsair 4000D</div>
+                        <div class="component-price">$129</div>
+                        <div class="component-specs">Mid-tower, Tempered glass, RGB ready</div>
+                    </div>
+                    <div class="component-option" data-component="case" data-price="199" data-name="Lian Li PC-O11">
+                        <div class="component-name">Lian Li PC-O11</div>
+                        <div class="component-price">$199</div>
+                        <div class="component-specs">Full-tower, Dual chamber, Premium</div>
+                    </div>
+                    <div class="component-option" data-component="case" data-price="69"
+                        data-name="Cooler Master MasterBox">
+                        <div class="component-name">Cooler Master MasterBox</div>
+                        <div class="component-price">$69</div>
+                        <div class="component-specs">Mid-tower, Budget friendly, Good airflow</div>
+                    </div>
+                </div>
+            </div>
+            
+
+                        <!-- STEP 2: Motherboard -->
+            <div class="step" data-component="motherboard">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-checkbox"></div>
+                </div>
+                <h3>Motherboard</h3>
+                <p>The central hub that connects all components. Choose one compatible with your CPU.</p>
+                <div class="component-selector">
+                    <div class="component-option" data-component="motherboard" data-price="179"
+                        data-name="MSI B650 Tomahawk" data-socket="AM5">
+                        <div class="component-name">MSI B650 Tomahawk</div>
+                        <div class="component-price">$179</div>
+                        <div class="component-specs">AM5 socket, WiFi 6, 4x RAM slots</div>
+                    </div>
+                    <div class="component-option" data-component="motherboard" data-price="229"
+                        data-name="ASUS ROG Strix B650-E" data-socket="AM5">
+                        <div class="component-name">ASUS ROG Strix B650-E</div>
+                        <div class="component-price">$229</div>
+                        <div class="component-specs">AM5 socket, WiFi 6E, Premium features</div>
+                    </div>
+                    <div class="component-option" data-component="motherboard" data-price="159"
+                        data-name="ASRock B760M Pro" data-socket="LGA1700">
+                        <div class="component-name">ASRock B760M Pro</div>
+                        <div class="component-price">$159</div>
+                        <div class="component-specs">LGA1700 socket, WiFi 6, Micro-ATX</div>
+                    </div>
+                    <div class="component-option" data-component="motherboard" data-price="199"
+                        data-name="MSI Z890 Plus Gaming WiFi Gaming" data-socket="LGA1700">
+                        <div class="component-name">MSI Z890 Plus Gaming WiFi Gaming</div>
+                        <div class="component-price">$199</div>
+                        <div class="component-specs">LGA 1851 socket, WiFi 7, Overclocking</div>
+                    </div>
+                </div>
+            </div>
+            <!-- STEP 3: CPU-->
+
+
+            <div class="step" data-component="CPU">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-checkbox"></div>
+                </div>
+                <h3>CPU (Processor)</h3>
+                <p>A Central Processing Unit (CPU), often called the "brain" of a computer. The CPU is essential for
+                    running any software or operating system on a computer.</p>
+                <div class="component-selector">
+                    <div class="component-option" data-component="CPU" data-price="599" data-name="AMD Ryzen 9 7950X3D">
+                        <div class="component-name">AMD Ryzen 9 7950X3D</div>
+                        <div class="component-price">$599</div>
+                        <div class="component-specs">16 core, 32 threads, 4.5 GHz base</div>
+                    </div>
+                    <div class="component-option" data-component="CPU" data-price="450"
+                        data-name="Intel Core Ultra 7 265">
+                        <div class="component-name">Intel Core Ultra 7 265K</div>
+                        <div class="component-price">$450</div>
+                        <div class="component-specs">16 core, 22 threads, 3.8 GHz base</div>
+                    </div>
+                    <div class="component-option" data-component="CPU" data-price="589"
+                        data-name="Intel Core i9-13900K">
+                        <div class="component-name">Intel Core i9-13900K</div>
+                        <div class="component-price">$589</div>
+                        <div class="component-specs">24 core, 32 threads, 3.0 GHz base</div>
+                    </div>
+                    <div class="component-option" data-component="CPU" data-price="299" data-name="AMD Ryzen 7 7700X"
+                        >
+                        <div class="component-name">AMD Ryzen 7 7700X</div>
+                        <div class="component-price">$299</div>
+                        <div class="component-specs">8 core, 16 threads, 4.5 GHz base</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: CPU Cooling Fan-->
+
+            <div class="step" data-component="CPU-cooling-fan">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-checkbox"></div>
+                </div>
+                <h3>CPU Cooling Fan</h3>
+                <p>Keeps your processor cool under load. Choose between air and liquid cooling.</p>
+                <div class="component-selector">
+                    <div class="component-option" data-component="CPU-cooling-fan" data-price="35" data-name="Cooler Master Hyper 212">
+                        <div class="component-name">Cooler Master Hyper 212</div>
+                        <div class="component-price">$35</div>
+                        <div class="component-specs">Air cooling, 120mm fan, Budget</div>
+                    </div>
+                    <div class="component-option" data-component="CPU-cooling-fan" data-price="89"
+                        data-name="Noctua NH-D15">
+                        <div class="component-name">Noctua NH-D15</div>
+                        <div class="component-price">$89</div>
+                        <div class="component-specs">Air cooling, Dual 140mm fans, Premium</div>
+                    </div>
+                    <div class="component-option" data-component="CPU-cooling-fan" data-price="129"
+                        data-name="Corsair H100i">
+                        <div class="component-name">Corsair H100i</div>
+                        <div class="component-price">$129</div>
+                        <div class="component-specs">40mm AIO, RGB lighting, Liquid</div>
+                    </div>
+                    <div class="component-option" data-component="CPU-cooling-fan" data-price="179" data-name="Arctic Liquid Freezer II 280">
+                        <div class="component-name">Arctic Liquid Freezer II 280</div>
+                        <div class="component-price">$179</div>
+                        <div class="component-specs">280mm AIO, Excellent performance</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Build Summary -->
+    <section class="summary-card">
+        <h3> Build Summary</h3>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <div class="summary-label">Total Cost</div>
+                <div class="summary-value" id="totalCost">$0</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Components Selected</div>
+                <div class="summary-value" id="componentsSelected">0/4</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Estimated Performance</div>
+                <div class="summary-value" id="performanceLevel">Select GPU</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Build Status</div>
+                <div class="summary-value" id="buildStatus">In Progress</div>
+            </div>
+        </div>
+        <div id="button-group">
+            <button class="export-btn" onclick="exportBuild()">Export Build List</button>
+            <button class="export-btn" onclick="shareBuild()">Share Build</button>
+            <button class="export-btn" onclick="resetBuild()">Reset Build</button>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <p>May your frame rates be high and your temperatures low! 🚀</p>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
