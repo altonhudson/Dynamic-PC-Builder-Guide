@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 0;
+}
+
+.header h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #e1bee7, #9c27b0, #673ab7, #3f51b5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(156, 39, 176, 0.5);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+
+.build-steps {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.step {
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(103, 58, 183, 0.2));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.component-option {
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.component-option.selected {
+    border: 2px solid limegreen;
+    background-color: rgba(144, 238, 144, 0.1);
+}
+
+.summary-card {
+    background: linear-gradient(135deg, rgba(103, 58, 183, 0.2), rgba(156, 39, 176, 0.2));
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    margin-bottom: 60px;
+}
+
+.summary-card h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ce93d8;
+    font-size: 2em;
+}
+
+
+.summary-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e1bee7;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
