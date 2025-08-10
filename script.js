@@ -33,7 +33,6 @@ function initializePage() {
   });
 
   setTimeout(animateStepsOnScroll, 100);
-  loadSavedBuild();
 }
 // Global tracker
 // Store selected components in an object
