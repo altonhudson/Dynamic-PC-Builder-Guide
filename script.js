@@ -121,6 +121,12 @@ function shareBuild() {
     alert("Sharing feature coming soon!");
 }
 
+// 🖱 Scroll listener
+window.addEventListener('scroll', () => {
+  updateProgress();
+  animateStepsOnScroll();
+});
+
 // 🧩 DOM ready: initialize everything
 document.addEventListener("DOMContentLoaded", () => {
   initializePage();
