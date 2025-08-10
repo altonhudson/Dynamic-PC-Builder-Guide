@@ -1,60 +1,80 @@
+// 🌌 Create twinkling stars
+function createStars() {
+  const starsContainer = document.querySelector('.stars');
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 2 + 's';
+    starsContainer.appendChild(star);
+  }
+}
 
+// 📜 Animate steps when they scroll into view
+function animateStepsOnScroll() {
+  document.querySelectorAll('.step').forEach(step => {
+    const position = step.getBoundingClientRect();
+    if (position.top < window.innerHeight && position.bottom > 0) {
+      step.style.opacity = '1';
+      step.style.transform = 'translateY(0)';
+    }
+  });
+}
+
+// 🚀 Initialize page
+function initializePage() {
+  createStars();
+
+  document.querySelectorAll('.step').forEach(step => {
+    step.style.opacity = '0';
+    step.style.transform = 'translateY(30px)';
+    step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  });
+
+  setTimeout(animateStepsOnScroll, 100);
+  loadSavedBuild();
+}
 // Global tracker
 // Store selected components in an object
 let selectedComponents = {};
 
-document.addEventListener("DOMContentLoaded", function () {
-    let allSteps = document.querySelectorAll(".step");
+function setupComponentSelection() {
+  document.querySelectorAll(".step").forEach(step => {
+    const componentType = step.getAttribute("data-component");
+    const componentOptions = step.querySelectorAll(".component-option");
 
-    for (let i = 0; i < allSteps.length; i++) {
-        let step = allSteps[i];
-        let componentOptions = step.querySelectorAll(".component-option");
-        let componentType = step.getAttribute("data-component");
+    componentOptions.forEach(option => {
+      option.addEventListener("click", function () {
+        componentOptions.forEach(opt => opt.classList.remove("selected"));
+        this.classList.add("selected");
 
-        for (let j = 0; j < componentOptions.length; j++) {
-            let option = componentOptions[j];
+        const name = this.getAttribute("data-name");
+        const price = parseFloat(this.getAttribute("data-price"));
 
-            option.addEventListener("click", function () {
-                // Deselect all options in this step
-                for (let k = 0; k < componentOptions.length; k++) {
-                    componentOptions[k].classList.remove("selected");
-                }
+        selectedComponents[componentType] = { name, price };
+        localStorage.setItem("pcBuild", JSON.stringify(selectedComponents));
 
-                // Highlight selected option
-                this.classList.add("selected");
-
-                // Get the selected option's name and price
-                let name = this.getAttribute("data-name");
-                let price = parseFloat(this.getAttribute("data-price"));
-
-                // Save selection to the object
-                selectedComponents[componentType] = {
-                    name: name,
-                    price: price
-                };
-
-                updateSummary();
-                updateProgress();
-            });
-        }
-    }
-});
+        updateSummary();
+        updateProgress();
+     });
+    })
+   })
+};
 
 // Update the summary section
 function updateSummary() {
-    let totalCost = 0;
-    let totalSelected = 0;
+  let totalCost = 0;
+  let totalSelected = 0;
 
-    for (let key in selectedComponents) {
-        totalCost += selectedComponents[key].price;
-        totalSelected++;
-    }
+  for (let key in selectedComponents) {
+    totalCost += selectedComponents[key].price;
+    totalSelected++;
+  }
 
-    document.getElementById("totalCost").textContent = "$" + totalCost.toFixed(2);
-    document.getElementById("componentsSelected").textContent = totalSelected + "/4";
-
-    let buildStatus = totalSelected === 4 ? "✅ Complete" : "In Progress";
-    document.getElementById("buildStatus").textContent = buildStatus;
+  document.getElementById("totalCost").textContent = "$" + totalCost.toFixed(2);
+  document.getElementById("componentsSelected").textContent = totalSelected + "/9";
+  document.getElementById("buildStatus").textContent = "Build Status: " + (totalSelected === 9 ? "✅ Complete" : "In Progress");
 }
 
 // Show progress circle
@@ -67,16 +87,42 @@ function updateProgress() {
     document.getElementById("progressText").textContent = selectedCount + "/" + totalParts + " Components";
 }
 
-// Show full build in popup
+// Export build summary
 function exportBuild() {
-    alert("Build information will show here.");
+  let summary = "Your PC Build:\n";
+  let total = 0;
+
+  for (let type in selectedComponents) {
+    const part = selectedComponents[type];
+    summary += `• ${type}: ${part.name} ($${part.price})\n`;
+    total += part.price;
+  }
+
+  summary += `\nTotal Cost: $${total.toFixed(2)}`;
+  alert(summary);
 }
 
 function resetBuild() {
-    window.location.href="index2.html"
-}
+  selectedComponents = {};
+  localStorage.removeItem("pcBuild");
 
+  document.querySelectorAll(".component-option.selected").forEach(el => el.classList.remove("selected"));
+
+  document.getElementById("totalCost").textContent = "$0.00";
+  document.getElementById("componentsSelected").textContent = "0/9";
+  document.getElementById("performanceLevel").textContent = "Estimated Performance: Select GPU";
+  document.getElementById("buildStatus").textContent = "Build Status: Incomplete";
+  document.getElementById("progressCircle").textContent = "0%";
+  document.getElementById("progressText").textContent = "0/9 Components";
+
+}
 // Coming soon
 function shareBuild() {
     alert("Sharing feature coming soon!");
 }
+
+// 🧩 DOM ready: initialize everything
+document.addEventListener("DOMContentLoaded", () => {
+  initializePage();
+  setupComponentSelection();
+});
