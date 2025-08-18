@@ -1,4 +1,4 @@
-//  Create twinkling stars
+//  Create twinkling stars in background
 function createStars() {
   const starsContainer = document.querySelector('.stars');
   for (let i = 0; i < 100; i++) {
@@ -22,7 +22,7 @@ function animateStepsOnScroll() {
   });
 }
 
-//  Global tracker
+//  Store selected PC components
 let selectedComponents = {};
 
 // Load saved build from localStorage
@@ -33,6 +33,7 @@ function loadSavedBuild() {
   try {
     selectedComponents = JSON.parse(saved);
 
+    // Restore previously selected options
     for (let componentType in selectedComponents) {
       const { name } = selectedComponents[componentType];
       const step = document.querySelector(`.step[data-component="${componentType}"]`);
@@ -45,32 +46,35 @@ function loadSavedBuild() {
         }
       });
     }
-
+    
+    // Updated UI with loaded data
     updateSummary();
     updateProgress();
     updatePerformanceEstimate();
     checkCompatibility();
-    animateStepsOnScroll(); // 👈 Ensure steps are visible after loading
+    animateStepsOnScroll(); // Ensure steps are visible after loading
   } catch (e) {
     console.error("Error loading saved build:", e);
   }
 }
 
-// Initialize page
+// Initialize page of first load
 function initializePage() {
   createStars();
 
+  // Prepare step animations
   document.querySelectorAll('.step').forEach(step => {
     step.style.opacity = '0';
     step.style.transform = 'translateY(30px)';
     step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   });
 
+  // Delay to trigger animations
   setTimeout(animateStepsOnScroll, 100);
   loadSavedBuild();
 }
 
-// Handle component selection
+// Handle component selection/deselecting
 function setupComponentSelection() {
   document.querySelectorAll(".step").forEach(step => {
     const componentType = step.getAttribute("data-component");
@@ -81,7 +85,7 @@ function setupComponentSelection() {
         const isSelected = this.classList.contains("selected")
 
         
-
+        //  deselect option if already selected
         if (isSelected) {
           this.classList.remove("selected")
           delete selectedComponents[componentType];
@@ -93,9 +97,11 @@ function setupComponentSelection() {
           return;
         }
         
+        // Clear previous selection for this component type
         componentOptions.forEach(opt => opt.classList.remove("selected"));
         this.classList.add("selected");
 
+        // Get attributes from selected options
         const name = this.getAttribute("data-name");
         const price = parseFloat(this.getAttribute("data-price"));
         const socket = this.getAttribute("data-socket"); //  Added so compatibility works
@@ -105,18 +111,20 @@ function setupComponentSelection() {
           ? { name, price, socket }
           : { name, price };
 
+          // Save build state
         localStorage.setItem("pcBuild", JSON.stringify(selectedComponents));
 
+        // Update all relevent UI secctions
         updateSummary();
         updateProgress();
         updatePerformanceEstimate();
-        checkCompatibility(); //  Runs after every selection
+        checkCompatibility(); 
       });
     });
   });
 }
 
-//  Update summary section
+//  Update summary section (cost, progress, status)
 function updateSummary() {
   let totalCost = 0;
   let totalSelected = 0;
@@ -206,8 +214,10 @@ function resetBuild() {
   selectedComponents = {};
   localStorage.removeItem("pcBuild");
 
+  // Clear selections from UI
   document.querySelectorAll(".component-option.selected").forEach(el => el.classList.remove("selected"));
 
+  // Reset UI summary
   document.getElementById("totalCost").textContent = "$0.00";
   document.getElementById("componentsSelected").textContent = "0/9";
   document.getElementById("performanceLevel").textContent = "Estimated Performance: Select GPU";
@@ -238,7 +248,7 @@ function shareBuild() {
   alert("Sharing feature coming soon!");
 }
 
-// Scroll listener
+// Update animations & progress on scroll
 window.addEventListener('scroll', () => {
   updateProgress();
   animateStepsOnScroll();
@@ -249,6 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializePage();
   setupComponentSelection();
 
+    // Hide floating progress sattus near bottm of the page
     window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
