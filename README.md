@@ -28,7 +28,7 @@ Learn about PC building best practices
 
 Team Member Contribution 👥
 Alton Hudson JavaScript functionality, interactive features, project coordination
-Garv and Ade HTML structure, CSS styling, responsive design, user interface
+Garv Dugh HTML structure, CSS styling, responsive design, user interface
 
 
 
@@ -44,6 +44,7 @@ Integrated third-party APIs for component data
 Led code reviews and maintained coding standards
 
 
+
 Garv Html and Css
 
 Created the complete HTML structure and semantic markup
@@ -55,7 +56,13 @@ Optimized frontend performance and user experience
 Ensured cross-browser compatibility and accessibility standards
 
 
+
 <img width="3832" height="2084" alt="image" src="https://github.com/user-attachments/assets/33103ed9-619f-4c2f-a02a-db0b57403d41" />
+
+
+
+
+
 
 <img width="3832" height="2096" alt="image" src="https://github.com/user-attachments/assets/9339702d-0075-4db1-a4f3-48f69ccc800e" />
 
