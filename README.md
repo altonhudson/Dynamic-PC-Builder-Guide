@@ -61,7 +61,7 @@ Ensured cross-browser compatibility and accessibility standards
 
 
 
-[![Video Title](https://img.youtube.com/vi/DvAUWqSuXdM/0.jpg)](https://youtu.be/DvAUWqSuXdM)
+[![Video Title](https://img.youtube.com/vi/tJyTv_i-9GE/0.jpg)](https://youtu.be/tJyTv_i-9GE)
 
 
 <img width="3832" height="2096" alt="image" src="https://github.com/user-attachments/assets/9339702d-0075-4db1-a4f3-48f69ccc800e" />
